@@ -7,16 +7,12 @@ def is_prime(j):   # this is a function that counts the number of factors for a 
         i += 1
     return fc
 
-def factors_test(j,k):  # n is the number to test, m is the largets factor
-    fails = 0
+def factors_test(j,k):  # n is the number to test, m is the largest factor
+    test = True;
     for i in range(1,k):
         if j % i != 0:
-            fails += 1
-            break
-    if fails > 0:
-        return False;
-    else:
-        return True;
+            test = False;
+    return test;
 
 def smallest_multiple():    
     print ("n = ???")
