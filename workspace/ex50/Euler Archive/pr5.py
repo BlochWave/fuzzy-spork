@@ -14,16 +14,15 @@ def factors_test(j,k):  # n is the number to test, m is the largest factor
             test = False;
     return test;
 
-def smallest_multiple():    
-    print ("n = ???")
-    n = int(raw_input())
-    primes_product = 1
-    for i in range(1,n):
-        if is_prime(i) == 0:
-            primes_product *= i
-    num = primes_product
-    while factors_test(num,n) == False:
-        num += primes_product
-    print "LCM is:",num
     
-smallest_multiple()
+print ("n = ???")
+n = int(raw_input())
+primes_product = 1
+for i in range(1,n):
+    if is_prime(i) == 0:
+        primes_product *= i
+num = primes_product
+while factors_test(num,n) == False:
+    num += primes_product
+print "LCM is:",num
+
