@@ -9,3 +9,29 @@
 # by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.
 
 # Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
+
+import time
+from math import sqrt
+start = time.time()
+
+abundant = set();
+my_range = range(1,28123);
+nonconforming = set(my_range);
+
+for n in my_range:
+    div_list = {1};
+    for i in range(2,int(1+sqrt(n))):
+        if n % i == 0:
+            div_list.add(i); div_list.add(n/i);
+    if sum(div_list) > n:
+        abundant.add(n);
+
+for i in my_range:
+    for x in sorted(list(abundant)):
+        if x >= i:
+            break;
+        elif x < i:
+            if i - x in abundant:
+                nonconforming.discard(i);
+
+print sum(nonconforming), time.time() - start;
